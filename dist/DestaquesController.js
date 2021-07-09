@@ -1,4 +1,4 @@
-const knex = require('../database/dbConfig')
+"use strict";const knex = require('../database/dbConfig')
 
 
 
@@ -32,12 +32,12 @@ module.exports = {
             if (dest[0].destaque) {
 
                 novo = await knex('filmes').where({ id }).update({ destaque: false });
-                res.status(200).json({ msg: "Filme " + dest[0].nome + " agora NÃO é mais destaque!!!" });
+                res.status(201).json({ msg: "Filme " + dest[0].nome + " agora NÃO é mais destaque!!!" });
 
             } else {
 
                 novo = await knex('filmes').where({ id }).update({ destaque: true });
-                res.status(200).json({ msg: "Filme " + dest[0].nome + " agora é destaque!!!" });
+                res.status(201).json({ msg: "Filme " + dest[0].nome + " agora é destaque!!!" });
 
             }
 

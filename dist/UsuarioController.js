@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+"use strict";const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 const knex = require('../database/dbConfig')
 
@@ -40,7 +40,7 @@ module.exports = {
             }
         },
         async login(req, res) {
-            const usuarios = await knex('usuarios');
+
             const { email, senha } = req.body;
 
             if (!email || !senha) {
@@ -62,7 +62,7 @@ module.exports = {
                     }, process.env.JWT_KEY, {
                         expiresIn: "1h"
                     })
-                    res.status(200).json({ msg: "Ok acesso permitido", token, usuario_nome: dadosUsuario[0].nome});
+                    res.status(200).json({ msg: "Ok acesso permitido", token });
                 } else {
                     res.status(400).json({ erro: "Dados incorretos" });
                 }

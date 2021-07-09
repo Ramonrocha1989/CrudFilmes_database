@@ -1,10 +1,10 @@
-const knex = require('../database/dbConfig')
+"use strict";const knex = require('../database/dbConfig')
 
 module.exports = {
     // listagem
     async index(req, res) {
         const filmes = await knex('diretores')
-        res.status(200).json(filmes)
+        res.status(400).json(filmes)
     },
 
     //inclusão
